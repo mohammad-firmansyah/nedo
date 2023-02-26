@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LonglistActivity"
+    android:orientation="vertical"
+    >
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/appbar" />
+
+
+
+        <TextView
+            android:id="@+id/mainText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserat_extrabold"
+            android:text="Mau Masak Apa "
+            android:textColor="@color/black"
+            android:textSize="36sp"
+            android:layout_marginTop="75dp"
+            android:paddingHorizontal="31dp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/mainText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserat_extrabold"
+            android:text="Hari Ini ?"
+            android:textColor="@color/black"
+            android:textSize="36sp"
+            android:paddingHorizontal="31dp"
+            tools:layout_editor_absoluteY="46dp" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvResep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="83dp"
+        android:paddingHorizontal="31dp"
+        >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+
+
+
+
+</LinearLayout>

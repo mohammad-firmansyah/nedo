@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_card_rc"
+    android:layout_marginBottom="36dp"
+    android:paddingHorizontal="30dp"
+    android:paddingVertical="17dp">
+
+    <ImageView
+        android:id="@+id/hero"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/img1_mini"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="29dp"
+        >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kue Koci - Koci"
+            android:textSize="20sp"
+            android:fontFamily="@font/montserat_bold"
+            android:textColor="@color/black"
+            android:layout_marginBottom="5dp"
+            />
+
+        <TextView
+            android:id="@+id/subTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserat_reg"
+            android:text="Madura , Jawa Timur , Rank #150"
+            android:textSize="14sp"
+            android:textColor="@color/grey"
+            />
+
+    </LinearLayout>
+</LinearLayout>
