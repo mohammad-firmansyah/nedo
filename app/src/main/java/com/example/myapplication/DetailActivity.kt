@@ -1,11 +1,13 @@
 package com.example.myapplication
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 
 class DetailActivity : AppCompatActivity() {
     lateinit var titleDetail : TextView
@@ -15,6 +17,8 @@ class DetailActivity : AppCompatActivity() {
     lateinit var heroimg : ImageView
     lateinit var rvBahan : RecyclerView
     lateinit var rvLangkah : RecyclerView
+    var listBahan = ArrayList<String>()
+    var listLangkah = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,8 +51,40 @@ class DetailActivity : AppCompatActivity() {
             desc.setText(resep.description)
             kkal.setText(resep.calOfAmount)
             category.setText(resep.category)
+
+            for (value in resep.ingredients){
+                listBahan.add(value)
+            }
+
+            for (value in resep.steps){
+                listLangkah.add(value)
+            }
+
+
+
 //            heroimg.setText(resep.category)
 //            rvBahan.setText(resep.category)
         }
+//        rvBahan.setHasFixedSize(true)
+//        rvLangkah.setHasFixedSize(true)
+        showRecyclerList()
+
     }
+
+    private fun showRecyclerList() {
+        val staggeredGridLayoutManagerBahan =
+            StaggeredGridLayoutManager(2, LinearLayoutManager.HORIZONTAL)
+
+        val staggeredGridLayoutManagerLangkah =
+            StaggeredGridLayoutManager(2, LinearLayoutManager.HORIZONTAL)
+
+        rvBahan.layoutManager = staggeredGridLayoutManagerBahan
+        rvLangkah.layoutManager = staggeredGridLayoutManagerLangkah
+
+        val listBahanAdapter = ListBahanAdapter(listBahan)
+        val listLangkahAdapter = ListBahanAdapter(listLangkah)
+        rvBahan.adapter = listBahanAdapter
+        rvLangkah.adapter = listLangkahAdapter
+    }
+
 }
