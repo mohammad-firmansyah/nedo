@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.bumptech.glide.Glide
 
 class DetailActivity : AppCompatActivity() {
     lateinit var titleDetail : TextView
@@ -61,6 +62,11 @@ class DetailActivity : AppCompatActivity() {
             }
 
 
+            Glide.with(this)
+                .load(resep.photo)
+                .centerCrop()
+                .into(heroimg);
+
 
 //            heroimg.setText(resep.category)
 //            rvBahan.setText(resep.category)
@@ -79,7 +85,7 @@ class DetailActivity : AppCompatActivity() {
             StaggeredGridLayoutManager(2, LinearLayoutManager.HORIZONTAL)
 
         rvBahan.layoutManager = staggeredGridLayoutManagerBahan
-        rvLangkah.layoutManager = staggeredGridLayoutManagerLangkah
+        rvLangkah.layoutManager = LinearLayoutManager(this)
 
         val listBahanAdapter = ListBahanAdapter(listBahan)
         val listLangkahAdapter = ListBahanAdapter(listLangkah)
