@@ -13,7 +13,7 @@ class ProfilActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profil)
 
         val back : ImageView = findViewById(R.id.imgBack)
-        val profil: ImageView = findViewById(R.id.imgMenu)
+        val profil: ImageView = findViewById(R.id.about_page)
 
         profil.setOnClickListener{
             startActivity(Intent(this,ProfilActivity::class.java))

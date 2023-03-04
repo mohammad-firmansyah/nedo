@@ -25,7 +25,7 @@ class LonglistActivity : AppCompatActivity() {
         setContentView(R.layout.activity_longlist)
 
         back = findViewById(R.id.imgBack)
-        profil = findViewById(R.id.imgMenu)
+        profil = findViewById(R.id.about_page)
 
         rvResep = findViewById(R.id.rvResep)
         rvResep.setHasFixedSize(true)

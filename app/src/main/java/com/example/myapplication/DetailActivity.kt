@@ -2,6 +2,7 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -27,7 +28,7 @@ class DetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_detail)
 
         val back : ImageView = findViewById(R.id.imgBack)
-        val profil: ImageView = findViewById(R.id.imgMenu)
+        val profil: ImageView = findViewById(R.id.about_page)
 
         profil.setOnClickListener{
             startActivity(Intent(this,ProfilActivity::class.java))
@@ -45,6 +46,8 @@ class DetailActivity : AppCompatActivity() {
         heroimg = findViewById(R.id.heroimg)
         rvBahan = findViewById(R.id.bahan)
         rvLangkah = findViewById(R.id.langkah)
+        val share :Button = findViewById(R.id.action_share)
+
 
         val resep = intent.getParcelableExtra<Resep>("resep")
         if (resep != null) {
@@ -74,6 +77,15 @@ class DetailActivity : AppCompatActivity() {
 //        rvBahan.setHasFixedSize(true)
 //        rvLangkah.setHasFixedSize(true)
         showRecyclerList()
+
+        share.setOnClickListener({
+            var intent = Intent(Intent.ACTION_SEND)
+            intent.setType("text/plain")
+            val bodyText = "Share makanan ${resep?.name} , ${resep?.description} "
+            intent.putExtra(Intent.EXTRA_SUBJECT,resep?.name)
+            intent.putExtra(Intent.EXTRA_TEXT,bodyText)
+            startActivity(Intent.createChooser(intent,"Sharing Makanan Enak yuk"))
+        })
 
     }
 
